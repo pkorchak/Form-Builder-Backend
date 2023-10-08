@@ -10,7 +10,7 @@ interface RegisterUserRqDto {
     provider: IdentityProvider;
 }
 
-export interface RegisterUserRsDto {
+interface RegisterUserRsDto {
     id?: string;
     message: string;
 }
