@@ -8,7 +8,7 @@ Globals:
     Runtime: nodejs18.x
     Architectures:
       - x86_64
-    Timeout: 5
+    Timeout: 15
     Environment:
       Variables:
         # Replace <username>, <password> and <clusterName> with the real values before the deployment or local testing
@@ -66,6 +66,27 @@ Resources:
         Sourcemap: true
         EntryPoints:
           - functions/formCreate/src/app.ts
+
+  FormListFunction:
+    Type: AWS::Serverless::Function
+    CodeUri: functions/formList/src
+    Properties:
+      FunctionName: FB-formList
+      Events:
+        CreateForm:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FormBuilderApi
+            Path: /forms
+            Method: get
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        Sourcemap: true
+        EntryPoints:
+          - functions/formList/src/app.ts
 
 Outputs:
   FormBuilderApi:
