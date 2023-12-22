@@ -27,7 +27,7 @@ Resources:
 
   RegisterFunction:
     Type: AWS::Serverless::Function
-    CodeUri: functions/register/src
+    CodeUri: functions/register
     Properties:
       FunctionName: FB-register
       Events:
@@ -44,11 +44,11 @@ Resources:
         Target: es2020
         Sourcemap: true
         EntryPoints:
-          - functions/register/src/app.ts
+          - functions/register/app.ts
 
   FormCreateFunction:
     Type: AWS::Serverless::Function
-    CodeUri: functions/formCreate/src
+    CodeUri: functions/formCreate
     Properties:
       FunctionName: FB-formCreate
       Events:
@@ -65,11 +65,11 @@ Resources:
         Target: es2020
         Sourcemap: true
         EntryPoints:
-          - functions/formCreate/src/app.ts
+          - functions/formCreate/app.ts
 
   FormListFunction:
     Type: AWS::Serverless::Function
-    CodeUri: functions/formList/src
+    CodeUri: functions/formList
     Properties:
       FunctionName: FB-formList
       Events:
@@ -86,7 +86,7 @@ Resources:
         Target: es2020
         Sourcemap: true
         EntryPoints:
-          - functions/formList/src/app.ts
+          - functions/formList/app.ts
 
 Outputs:
   FormBuilderApi:
